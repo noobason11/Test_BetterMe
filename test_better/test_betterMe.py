@@ -2,6 +2,7 @@ from google.cloud import bigquery
 from google.oauth2 import service_account
 import pandas as pd
 import csv
+import glob
 
 
 project = 'clever-axe-251109'
@@ -9,7 +10,6 @@ dataset_id = 'Test_4'
 table_id = 'Test_Better'
 credentials = service_account.Credentials.from_service_account_file('../db_reporting.json')
 client_bq = bigquery.Client(project, credentials=credentials)
-import glob
 
 def get_data():
     txt_list = glob.glob('*.txt')
